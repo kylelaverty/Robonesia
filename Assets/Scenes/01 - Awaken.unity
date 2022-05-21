@@ -6389,9 +6389,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 100
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_AssetsPPU: 32
+  m_RefResolutionX: 1920
+  m_RefResolutionY: 1080
   m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 0
@@ -6408,6 +6408,7 @@ GameObject:
   - component: {fileID: 589007307}
   - component: {fileID: 589007309}
   - component: {fileID: 589007308}
+  - component: {fileID: 589007310}
   m_Layer: 0
   m_Name: CollisionObjects
   m_TagString: Untagged
@@ -7123,6 +7124,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &589007310
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589007306}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &1401511642
 GameObject:
   m_ObjectHideFlags: 0
@@ -15206,6 +15223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4301586249337316796, guid: 0ef8a9f7ba4a7de4c83be74dc95cd18d, type: 3}
+      propertyPath: movementFilter.layerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6348365593843179760, guid: 0ef8a9f7ba4a7de4c83be74dc95cd18d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -15253,6 +15274,10 @@ PrefabInstance:
     - target: {fileID: 6348365593843179762, guid: 0ef8a9f7ba4a7de4c83be74dc95cd18d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348365593843179763, guid: 0ef8a9f7ba4a7de4c83be74dc95cd18d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef8a9f7ba4a7de4c83be74dc95cd18d, type: 3}
