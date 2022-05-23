@@ -38,10 +38,13 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Base
+  - name: Background
     uniqueID: 2055037751
     locked: 0
-  - name: Background
+  - name: Walls
+    uniqueID: 3504284651
+    locked: 0
+  - name: Furnature
     uniqueID: 3255435235
     locked: 0
   - name: Default
