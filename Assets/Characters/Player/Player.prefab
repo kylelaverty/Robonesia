@@ -214,3 +214,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  energyDegradeInitialDelaySeconds: 10
+  energyDegradeDelaySeconds: 10
+  energyDegradeAmount: 50
