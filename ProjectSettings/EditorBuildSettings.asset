@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/95 - City.unity
     guid: b95004e7820fd564490aa2c679436975
   - enabled: 1
+    path: Assets/Scenes/98 - Win.unity
+    guid: 3ae0f42fc40394b48a40e9b389a1a179
+  - enabled: 1
     path: Assets/Scenes/99 - Death.unity
     guid: bcdc06c384047df4ea0dd8b430f75db2
   m_configObjects: {}
