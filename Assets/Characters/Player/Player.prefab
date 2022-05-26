@@ -216,4 +216,5 @@ MonoBehaviour:
     maxNormalAngle: 0
   energyDegradeInitialDelaySeconds: 10
   energyDegradeDelaySeconds: 10
-  energyDegradeAmount: 50
+  energyDegradeAmount: 2
+  isFinalMap: 0

@@ -19,6 +19,9 @@ public class GameSession : MonoBehaviour
     [SerializeField]
     private Slider playerMemoriesSlider;
 
+    [SerializeField]
+    private GameObject menuPanel;
+
     // Use Awake to enforce singleton pattern
     private void Awake()
     {
@@ -97,20 +100,36 @@ public class GameSession : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void GoOutside()
+    {
+        LoadMap("95 - City");
+    }
+
     private void PlayerDeadEndGame()
     {
-        LoadFinalMap("99 - Death");
+        LoadMap("99 - Death");
     }
 
     private void PlayerWinGame()
     {
-        LoadFinalMap("98 - Win");
+        LoadMap("98 - Win");
     }
 
-    private void LoadFinalMap(string sceneName)
+    private void LoadMap(string sceneName)
     {
         // Cleanup the player controller to make sure the DecreaseEnergy process is stopped.
         Destroy(FindObjectOfType<PlayerController>());
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void ToggleMenu()
+    {
+        menuPanel.SetActive(!menuPanel.activeSelf);
+    }
+
+    public void OnClickQuick()
+    {
+        Destroy(FindObjectOfType<PlayerController>());
+        ResetGameSession();
     }
 }
