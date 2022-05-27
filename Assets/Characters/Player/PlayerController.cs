@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private float collisionOffset = 0.05f;
     [SerializeField]
     private ContactFilter2D movementFilter;
+    [SerializeField]
+    public bool canMove = true;
 
     [Header("Energy")]
     [SerializeField]
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update.
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -59,8 +61,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // If movement input is not 0, try to move
-        if (movementInput != Vector2.zero)
+        // If movement input is not 0, try to move.
+        if (movementInput != Vector2.zero && canMove)
         {
             bool success = TryMove(movementInput);
 
@@ -83,14 +85,18 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("IsMoving", false);
         }
 
-        // Set direction of sprite to movement direction
-        if (movementInput.x < 0)
+        // Only change the direction if the player can currently be moving.
+        if (canMove)
         {
-            playerRenderer.flipX = true;
-        }
-        else if (movementInput.x > 0)
-        {
-            playerRenderer.flipX = false;
+            // Set direction of sprite to movement direction.
+            if (movementInput.x < 0)
+            {
+                playerRenderer.flipX = true;
+            }
+            else if (movementInput.x > 0)
+            {
+                playerRenderer.flipX = false;
+            }
         }
     }
 

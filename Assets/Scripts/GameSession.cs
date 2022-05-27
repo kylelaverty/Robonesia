@@ -22,6 +22,21 @@ public class GameSession : MonoBehaviour
     [SerializeField]
     private GameObject menuPanel;
 
+    [Header("Conversation")]
+    [SerializeField]
+    private GameObject conversationPanel;
+    [SerializeField]
+    private Image conversationSpeakerImage;
+    [SerializeField]
+    private TextMeshProUGUI conversationText;
+    [SerializeField]
+    private Button continueButton;
+    [SerializeField]
+    private float typingSpeed = 0.02f;
+
+    private string[] conversationSentences;
+    private int conversationSentenceIndex;
+
     // Use Awake to enforce singleton pattern
     private void Awake()
     {
@@ -44,6 +59,14 @@ public class GameSession : MonoBehaviour
         Debug.Log("Player Memories: " + playerMemories);
         playerEnergySlider.value = playerEnergy;
         playerMemoriesSlider.value = playerMemories;
+    }
+
+    private void Update()
+    {
+        if (conversationText.text == conversationSentences[conversationSentenceIndex])
+        {
+            continueButton.gameObject.SetActive(true);
+        }
     }
 
     public void IncreaseEnergy(int value)
@@ -131,5 +154,44 @@ public class GameSession : MonoBehaviour
     {
         Destroy(FindObjectOfType<PlayerController>());
         ResetGameSession();
+    }
+
+    // Accept in an image referencing the speaker and an array of the sentences to be spoken.
+    public void StartConversation(Sprite entityHeadReference, string[] newConversationSentences)
+    {
+        conversationSentences = newConversationSentences;
+        FindObjectOfType<PlayerController>().canMove = false;
+        conversationPanel.SetActive(true);
+        conversationSpeakerImage.sprite = entityHeadReference;
+        continueButton.gameObject.SetActive(false);
+        StartCoroutine(TypeConversation());
+    }
+
+    private IEnumerator TypeConversation()
+    {
+        foreach (char letter in conversationSentences[conversationSentenceIndex].ToCharArray())
+        {
+            conversationText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+    }
+
+    public void NextSentence()
+    {
+        continueButton.gameObject.SetActive(false);
+
+        if (conversationSentenceIndex < conversationSentences.Length - 1)
+        {
+            conversationSentenceIndex++;
+            conversationText.text = string.Empty;
+            StartCoroutine(TypeConversation());
+        }
+        else
+        {
+            conversationPanel.SetActive(false);
+            FindObjectOfType<PlayerController>().canMove = true;
+            conversationText.text = string.Empty;
+            conversationSpeakerImage.sprite = null;
+        }
     }
 }
