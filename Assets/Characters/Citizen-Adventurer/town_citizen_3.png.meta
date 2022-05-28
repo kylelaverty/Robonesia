@@ -20,6 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1073,12 +1075,12 @@ TextureImporter:
     nameFileIdTable:
       town_citizen_3_41: 436386920
       town_citizen_3_44: -551678528
-      town_citizen_3_40: 722742807
       town_citizen_3_43: -9925308
       town_citizen_3_30: 1774837472
       town_citizen_3_31: -1964515439
       town_citizen_3_8: 1610718977
       town_citizen_3_2: 759138260
+      town_citizen_3_39: 715460473
       town_citizen_3_4: 2098506821
       town_citizen_3_20: -1034458861
       town_citizen_3_14: 1684638943
@@ -1093,8 +1095,8 @@ TextureImporter:
       town_citizen_3_0: 22019119
       town_citizen_3_7: 1196660842
       town_citizen_3_22: -1362544686
-      town_citizen_3_34: 934979818
       town_citizen_3_10: -428597469
+      town_citizen_3_34: 934979818
       town_citizen_3_3: -269127865
       town_citizen_3_17: -606611582
       town_citizen_3_38: 1548093917
@@ -1112,13 +1114,12 @@ TextureImporter:
       town_citizen_3_37: 1920486628
       town_citizen_3_5: 1126484900
       town_citizen_3_1: 2001798706
-      town_citizen_3_6: -1505555505
-      town_citizen_3_27: 822617175
-      town_citizen_3_39: 715460473
       town_citizen_3_26: 1631259848
+      town_citizen_3_40: 722742807
+      town_citizen_3_27: 822617175
+      town_citizen_3_6: -1505555505
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

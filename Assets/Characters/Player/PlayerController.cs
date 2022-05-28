@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private ContactFilter2D movementFilter;
     [SerializeField]
     public bool canMove = true;
+    [SerializeField]
+    private VectorValue startingPosition;
 
     [Header("Energy")]
     [SerializeField]
@@ -40,6 +42,12 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         playerRenderer = GetComponent<SpriteRenderer>();
+
+        // startingPosition is null for the very first scene (for now)
+        if (startingPosition != null)
+        {
+            transform.position = startingPosition.initialValue;
+        }
 
         // Start the process of energy degradation only is not on final map (death or win).
         if (!isFinalMap)

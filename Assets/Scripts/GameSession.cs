@@ -36,6 +36,9 @@ public class GameSession : MonoBehaviour
 
     private string[] conversationSentences;
     private int conversationSentenceIndex;
+    private int memoryToAwardAfterConversation;
+    private Coroutine recharger;
+    private bool isRecharging;
 
     // Use Awake to enforce singleton pattern
     private void Awake()
@@ -63,7 +66,7 @@ public class GameSession : MonoBehaviour
 
     private void Update()
     {
-        if (conversationText.text == conversationSentences[conversationSentenceIndex])
+        if (conversationSentences != null && conversationText.text == conversationSentences[conversationSentenceIndex])
         {
             continueButton.gameObject.SetActive(true);
         }
@@ -73,7 +76,7 @@ public class GameSession : MonoBehaviour
     {
         // We only want to increase the energy if the player is not already dead.
         // This prevents the player from touching the charge pod just as they die.
-        if (playerEnergy < 0)
+        if (playerEnergy > 0)
         {
             playerEnergy += value;
             playerEnergySlider.value = playerEnergy;
@@ -82,22 +85,26 @@ public class GameSession : MonoBehaviour
 
     public void DecreaseEnergy(int value)
     {
-        // Decrease the energy.
-        playerEnergy -= value;
-
-        // If they are now dead, then we need to load the death scene.
-        if (playerEnergy <= 0)
+        // Only decrease energy if player is not actively recharging.
+        if (!isRecharging)
         {
-            // Set the energy to 0 just incase and update the UI.
-            playerEnergy = 0;
-            playerEnergySlider.value = playerEnergy;
+            // Decrease the energy.
+            playerEnergy -= value;
 
-            // Load the death scene.
-            PlayerDeadEndGame();
-        }
-        else
-        {
-            playerEnergySlider.value = playerEnergy;
+            // If they are now dead, then we need to load the death scene.
+            if (playerEnergy <= 0)
+            {
+                // Set the energy to 0 just incase and update the UI.
+                playerEnergy = 0;
+                playerEnergySlider.value = playerEnergy;
+
+                // Load the death scene.
+                PlayerDeadEndGame();
+            }
+            else
+            {
+                playerEnergySlider.value = playerEnergy;
+            }
         }
     }
 
@@ -121,11 +128,6 @@ public class GameSession : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         Destroy(gameObject);
-    }
-
-    public void GoOutside()
-    {
-        LoadMap("95 - City");
     }
 
     private void PlayerDeadEndGame()
@@ -157,9 +159,10 @@ public class GameSession : MonoBehaviour
     }
 
     // Accept in an image referencing the speaker and an array of the sentences to be spoken.
-    public void StartConversation(Sprite entityHeadReference, string[] newConversationSentences)
+    public void StartConversation(Sprite entityHeadReference, string[] newConversationSentences, int memoryAwarded)
     {
         conversationSentences = newConversationSentences;
+        memoryToAwardAfterConversation = memoryAwarded;
         FindObjectOfType<PlayerController>().canMove = false;
         conversationPanel.SetActive(true);
         conversationSpeakerImage.sprite = entityHeadReference;
@@ -188,10 +191,35 @@ public class GameSession : MonoBehaviour
         }
         else
         {
+            Debug.Log("Finished Conversation");
             conversationPanel.SetActive(false);
             FindObjectOfType<PlayerController>().canMove = true;
             conversationText.text = string.Empty;
             conversationSpeakerImage.sprite = null;
+            Debug.Log("Memory Awarded: " + memoryToAwardAfterConversation);
+            IncreaseMemory(memoryToAwardAfterConversation);
+            memoryToAwardAfterConversation = 0;
         }
+    }
+
+    public void StartRecharge(int chargeAmount, float chargeSpeedSeconds)
+    {
+        isRecharging = true;
+        recharger = StartCoroutine(Recharge(chargeAmount, chargeSpeedSeconds));
+    }
+
+    private IEnumerator Recharge(int chargeAmount, float chargeSpeedSeconds)
+    {
+        while (true)
+        {
+            IncreaseEnergy(chargeAmount);
+            yield return new WaitForSeconds(chargeSpeedSeconds);
+        }
+    }
+
+    public void StopRecharge()
+    {
+        isRecharging = false;
+        StopCoroutine(recharger);
     }
 }
