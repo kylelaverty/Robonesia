@@ -28,19 +28,26 @@ public class MenuController : MonoBehaviour
 
     [Header("Confirmation")]
     [SerializeField] private GameObject confirmationPrompt;
-    
+
     [Header("Levels To Load")]
     [SerializeField] private string newGameLevel;
     [SerializeField] private GameObject noSavedGameDialog;
 
+    [Header("Progress Tracker")]
+    [SerializeField]
+    private ConversationHistory playerConversationHistory;
+
     private string levelToLoad;
 
-    public void NewGameDialogYes(){
+    public void NewGameDialogYes()
+    {
+        playerConversationHistory.Reset();
         StartCoroutine(LoadLevel(newGameLevel));
     }
 
     // Play the animation, wait and then load the scene.
-    private IEnumerator LoadLevel(string levelToLoad){
+    private IEnumerator LoadLevel(string levelToLoad)
+    {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelToLoad);
@@ -48,11 +55,13 @@ public class MenuController : MonoBehaviour
 
     public void LoadGameDialogYes()
     {
-        if(PlayerPrefs.HasKey("SavedLevel"))
+        if (PlayerPrefs.HasKey("SavedLevel"))
         {
             levelToLoad = PlayerPrefs.GetString("SavedLevel");
             SceneManager.LoadScene(levelToLoad);
-        }else{
+        }
+        else
+        {
             noSavedGameDialog.SetActive(true);
         }
     }
@@ -81,10 +90,14 @@ public class MenuController : MonoBehaviour
         controllerSensativityTextValue.text = mainControllerSensativity.ToString("0");
     }
 
-    public void GameplayApply(){
-        if(invertYToggle.isOn){
+    public void GameplayApply()
+    {
+        if (invertYToggle.isOn)
+        {
             PlayerPrefs.SetInt("masterInvertY", 1);
-        }else{
+        }
+        else
+        {
             PlayerPrefs.SetInt("masterInvertY", 0);
         }
 
@@ -92,15 +105,18 @@ public class MenuController : MonoBehaviour
         StartCoroutine(ConfirmationBox());
     }
 
-    public void ResetButton(string MenuType){
-        if(MenuType == "Audio"){
+    public void ResetButton(string MenuType)
+    {
+        if (MenuType == "Audio")
+        {
             AudioListener.volume = defaultVolume;
             volumeSlider.value = defaultVolume;
             volumeTextValue.text = defaultVolume.ToString("0.0");
             VolumeApply();
         }
 
-        if(MenuType == "Gameplay"){
+        if (MenuType == "Gameplay")
+        {
             mainControllerSensativity = defaultSensativity;
             controllerSensativitySlider.value = defaultSensativity;
             controllerSensativityTextValue.text = defaultSensativity.ToString("0");
@@ -109,7 +125,8 @@ public class MenuController : MonoBehaviour
         }
     }
 
-    public IEnumerator ConfirmationBox(){
+    public IEnumerator ConfirmationBox()
+    {
         confirmationPrompt.SetActive(true);
         yield return new WaitForSeconds(2);
         confirmationPrompt.SetActive(false);

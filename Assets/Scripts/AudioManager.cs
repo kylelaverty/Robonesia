@@ -30,6 +30,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void Dispose()
+    {
+        Destroy(gameObject);
+    }
+
     private void Start()
     {
         StartMusic();

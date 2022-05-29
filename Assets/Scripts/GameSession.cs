@@ -22,21 +22,9 @@ public class GameSession : MonoBehaviour
     [SerializeField]
     private GameObject menuPanel;
 
-    [Header("Conversation")]
     [SerializeField]
-    private GameObject conversationPanel;
-    [SerializeField]
-    private Image conversationSpeakerImage;
-    [SerializeField]
-    private TextMeshProUGUI conversationText;
-    [SerializeField]
-    private Button continueButton;
-    [SerializeField]
-    private float typingSpeed = 0.02f;
+    private ConversationHistory playerConversationHistory;
 
-    private string[] conversationSentences;
-    private int conversationSentenceIndex;
-    private int memoryToAwardAfterConversation;
     private Coroutine recharger;
     private bool isRecharging;
 
@@ -57,19 +45,8 @@ public class GameSession : MonoBehaviour
     // User Start to set the intial values of the sliders
     private void Start()
     {
-        Debug.Log("GameSession Start");
-        Debug.Log("Player Energy: " + playerEnergy);
-        Debug.Log("Player Memories: " + playerMemories);
         playerEnergySlider.value = playerEnergy;
         playerMemoriesSlider.value = playerMemories;
-    }
-
-    private void Update()
-    {
-        if (conversationSentences != null && conversationText.text == conversationSentences[conversationSentenceIndex])
-        {
-            continueButton.gameObject.SetActive(true);
-        }
     }
 
     public void IncreaseEnergy(int value)
@@ -94,18 +71,28 @@ public class GameSession : MonoBehaviour
             // If they are now dead, then we need to load the death scene.
             if (playerEnergy <= 0)
             {
-                // Set the energy to 0 just incase and update the UI.
-                playerEnergy = 0;
-                playerEnergySlider.value = playerEnergy;
-
-                // Load the death scene.
-                PlayerDeadEndGame();
+                EnergyZero();
             }
             else
             {
                 playerEnergySlider.value = playerEnergy;
+
+                if (playerEnergy <= 0)
+                {
+                    EnergyZero();
+                }
             }
         }
+    }
+
+    private void EnergyZero()
+    {
+        // Set the energy to 0 just incase and update the UI.
+        playerEnergy = 0;
+        playerEnergySlider.value = playerEnergy;
+
+        // Load the death scene.
+        PlayerDeadEndGame();
     }
 
     public void IncreaseMemory(int value)
@@ -127,6 +114,11 @@ public class GameSession : MonoBehaviour
     public void ResetGameSession()
     {
         SceneManager.LoadScene(0);
+        Dispose();
+    }
+
+    public void Dispose()
+    {
         Destroy(gameObject);
     }
 
@@ -152,54 +144,11 @@ public class GameSession : MonoBehaviour
         menuPanel.SetActive(!menuPanel.activeSelf);
     }
 
-    public void OnClickQuick()
+    public void OnClickQuit()
     {
         Destroy(FindObjectOfType<PlayerController>());
+        playerConversationHistory.Reset();
         ResetGameSession();
-    }
-
-    // Accept in an image referencing the speaker and an array of the sentences to be spoken.
-    public void StartConversation(Sprite entityHeadReference, string[] newConversationSentences, int memoryAwarded)
-    {
-        conversationSentences = newConversationSentences;
-        memoryToAwardAfterConversation = memoryAwarded;
-        FindObjectOfType<PlayerController>().canMove = false;
-        conversationPanel.SetActive(true);
-        conversationSpeakerImage.sprite = entityHeadReference;
-        continueButton.gameObject.SetActive(false);
-        StartCoroutine(TypeConversation());
-    }
-
-    private IEnumerator TypeConversation()
-    {
-        foreach (char letter in conversationSentences[conversationSentenceIndex].ToCharArray())
-        {
-            conversationText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
-        }
-    }
-
-    public void NextSentence()
-    {
-        continueButton.gameObject.SetActive(false);
-
-        if (conversationSentenceIndex < conversationSentences.Length - 1)
-        {
-            conversationSentenceIndex++;
-            conversationText.text = string.Empty;
-            StartCoroutine(TypeConversation());
-        }
-        else
-        {
-            Debug.Log("Finished Conversation");
-            conversationPanel.SetActive(false);
-            FindObjectOfType<PlayerController>().canMove = true;
-            conversationText.text = string.Empty;
-            conversationSpeakerImage.sprite = null;
-            Debug.Log("Memory Awarded: " + memoryToAwardAfterConversation);
-            IncreaseMemory(memoryToAwardAfterConversation);
-            memoryToAwardAfterConversation = 0;
-        }
     }
 
     public void StartRecharge(int chargeAmount, float chargeSpeedSeconds)

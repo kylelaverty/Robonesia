@@ -6,30 +6,16 @@ public class CitizenAdventurerController : MonoBehaviour
 {
     [SerializeField]
     private Sprite characterHead;
-
-    private bool hasSpokeAlready = false;
-
-    // Use Awake to enforce singleton pattern
-    private void Awake()
-    {
-        int citizenAdventurerCount = FindObjectsOfType<CitizenAdventurerController>().Length;
-        if (citizenAdventurerCount > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
+    [SerializeField]
+    private ConversationHistory playerConversationHistory;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !other.isTrigger && !hasSpokeAlready)
+        if (other.CompareTag("Player") && !other.isTrigger && !playerConversationHistory.metAdventurer)
         {
-            hasSpokeAlready = true;
-            var gameSession = FindObjectOfType<GameSession>();
-            gameSession.StartConversation(
+            playerConversationHistory.metAdventurer = true;
+            var conversationManager = FindObjectOfType<ConversationManager>();
+            conversationManager.StartConversation(
                 characterHead,
                 new string[] {
                     "Hello, I'm an Adventurer.",

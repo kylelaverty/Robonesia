@@ -1,38 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScientistController : MonoBehaviour
 {
     [SerializeField]
     private Sprite characterHead;
-
-    private bool hasSpokeAlready = false;
-
-    // Use Awake to enforce singleton pattern
-    private void Awake()
-    {
-        int scientistCount = FindObjectsOfType<ScientistController>().Length;
-        if (scientistCount > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
+    [SerializeField]
+    private ConversationHistory playerConversationHistory;
 
     // Start is called before the first frame update
     void Start()
     {
         // Ensure the dialog only triggers the first time the scientist is created.
-        if (!hasSpokeAlready)
+        if (!playerConversationHistory.metScientist)
         {
-            hasSpokeAlready = true;
-            var gameSession = FindObjectOfType<GameSession>();
-            gameSession.StartConversation(
+            playerConversationHistory.metScientist = true;
+            var conversationManager = FindObjectOfType<ConversationManager>();
+            conversationManager.StartConversation(
                 characterHead,
                 new string[] {
                     "Hello, I'm a scientist. I'm here to help you find your missing memories.",
