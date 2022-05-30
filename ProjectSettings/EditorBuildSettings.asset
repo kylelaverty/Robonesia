@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/02 - Adventure.unity
     guid: 9adb510067c402647ae9773a7608aae5
   - enabled: 1
+    path: Assets/Scenes/03 - Smith.unity
+    guid: 4e40b960a0cfb634582301c00ec2205d
+  - enabled: 1
     path: Assets/Scenes/95 - City.unity
     guid: b95004e7820fd564490aa2c679436975
   - enabled: 1

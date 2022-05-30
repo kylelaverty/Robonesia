@@ -20,6 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -35998,22 +36000,22 @@ TextureImporter:
       rougelike_master_sheet_39: 932653689
       rougelike_master_sheet_1117: 1975041505
       rougelike_master_sheet_1667: 67183997
-      rougelike_master_sheet_146: -1591386685
       rougelike_master_sheet_1312: 1018670200
+      rougelike_master_sheet_1653: 172173678
       rougelike_master_sheet_1412: 491697523
       rougelike_master_sheet_838: 1249556777
       rougelike_master_sheet_678: -1459699518
       rougelike_master_sheet_1512: 1692142794
       rougelike_master_sheet_1032: -1233233398
-      rougelike_master_sheet_1653: 172173678
+      rougelike_master_sheet_146: -1591386685
       rougelike_master_sheet_415: -803679236
       rougelike_master_sheet_902: 138731460
       rougelike_master_sheet_1018: 2133157507
-      rougelike_master_sheet_1103: 710147148
       rougelike_master_sheet_1505: -191522500
       rougelike_master_sheet_40: -903541661
       rougelike_master_sheet_1136: 1318911282
       rougelike_master_sheet_1500: -33864297
+      rougelike_master_sheet_1103: 710147148
       rougelike_master_sheet_139: 1112310271
       rougelike_master_sheet_1601: 707614869
       rougelike_master_sheet_1628: 1639403100
@@ -36035,8 +36037,8 @@ TextureImporter:
       rougelike_master_sheet_405: 1988631484
       rougelike_master_sheet_764: -1429638529
       rougelike_master_sheet_712: -836205677
-      rougelike_master_sheet_933: -1786893848
       rougelike_master_sheet_1428: -350978074
+      rougelike_master_sheet_933: -1786893848
       rougelike_master_sheet_162: -848633637
       rougelike_master_sheet_1668: 1376318229
       rougelike_master_sheet_257: 733089172
@@ -36054,13 +36056,13 @@ TextureImporter:
       rougelike_master_sheet_1368: -1902912548
       rougelike_master_sheet_141: 1468411197
       rougelike_master_sheet_523: -139970480
-      rougelike_master_sheet_850: -577409972
+      rougelike_master_sheet_1201: 602945022
       rougelike_master_sheet_607: -198312585
       rougelike_master_sheet_360: -861246450
-      rougelike_master_sheet_1201: 602945022
       rougelike_master_sheet_646: 322719990
       rougelike_master_sheet_915: -799550521
       rougelike_master_sheet_233: 2130196930
+      rougelike_master_sheet_850: -577409972
       rougelike_master_sheet_452: 907558353
       rougelike_master_sheet_1634: 1452457111
       rougelike_master_sheet_729: 1700261062
@@ -36172,9 +36174,9 @@ TextureImporter:
       rougelike_master_sheet_1129: 463207599
       rougelike_master_sheet_497: -1416463191
       rougelike_master_sheet_1288: -1269335917
-      rougelike_master_sheet_2: -968638649
-      rougelike_master_sheet_472: 389572929
       rougelike_master_sheet_1485: 317896407
+      rougelike_master_sheet_472: 389572929
+      rougelike_master_sheet_2: -968638649
       rougelike_master_sheet_25: 1150582878
       rougelike_master_sheet_501: 898265847
       rougelike_master_sheet_1677: 533164788
@@ -36245,13 +36247,13 @@ TextureImporter:
       rougelike_master_sheet_713: 1216790183
       rougelike_master_sheet_16: 883091358
       rougelike_master_sheet_431: -290891861
-      rougelike_master_sheet_767: 1773392051
       rougelike_master_sheet_1421: -254766966
       rougelike_master_sheet_443: 1454757035
       rougelike_master_sheet_1281: 2100788538
       rougelike_master_sheet_1379: 1193267503
       rougelike_master_sheet_1261: -1055603451
       rougelike_master_sheet_1263: -652876139
+      rougelike_master_sheet_767: 1773392051
       rougelike_master_sheet_843: -1746888347
       rougelike_master_sheet_396: 152670282
       rougelike_master_sheet_727: -1262103965
@@ -36366,9 +36368,9 @@ TextureImporter:
       rougelike_master_sheet_31: 2028238685
       rougelike_master_sheet_485: 1529824974
       rougelike_master_sheet_908: 1807190021
-      rougelike_master_sheet_659: 62115275
-      rougelike_master_sheet_1166: 640178995
       rougelike_master_sheet_1405: -713240630
+      rougelike_master_sheet_1166: 640178995
+      rougelike_master_sheet_659: 62115275
       rougelike_master_sheet_784: -1946244661
       rougelike_master_sheet_975: 2093808560
       rougelike_master_sheet_85: 2119444649
@@ -36410,10 +36412,10 @@ TextureImporter:
       rougelike_master_sheet_543: -1979074009
       rougelike_master_sheet_347: -29988557
       rougelike_master_sheet_815: -1521721249
-      rougelike_master_sheet_987: 1202739634
-      rougelike_master_sheet_1193: -604840269
-      rougelike_master_sheet_57: 522779023
       rougelike_master_sheet_1611: 677621174
+      rougelike_master_sheet_1193: -604840269
+      rougelike_master_sheet_987: 1202739634
+      rougelike_master_sheet_57: 522779023
       rougelike_master_sheet_20: 1363822619
       rougelike_master_sheet_927: -1207438109
       rougelike_master_sheet_1010: 1096610501
@@ -36487,9 +36489,8 @@ TextureImporter:
       rougelike_master_sheet_909: -1572350726
       rougelike_master_sheet_313: -953345164
       rougelike_master_sheet_451: 684652080
-      rougelike_master_sheet_705: 1244678632
       rougelike_master_sheet_1338: 1855434260
-      rougelike_master_sheet_1380: 538261968
+      rougelike_master_sheet_705: 1244678632
       rougelike_master_sheet_456: -1827386501
       rougelike_master_sheet_794: -20553088
       rougelike_master_sheet_1390: -1184961484
@@ -36509,14 +36510,15 @@ TextureImporter:
       rougelike_master_sheet_174: 1626941594
       rougelike_master_sheet_44: 1111644256
       rougelike_master_sheet_818: -653089900
-      rougelike_master_sheet_1110: 381745060
+      rougelike_master_sheet_1380: 538261968
       rougelike_master_sheet_298: -375187155
-      rougelike_master_sheet_86: -651885481
+      rougelike_master_sheet_1110: 381745060
       rougelike_master_sheet_147: 482124169
       rougelike_master_sheet_300: -1194697794
-      rougelike_master_sheet_1643: -1998727853
+      rougelike_master_sheet_86: -651885481
       rougelike_master_sheet_803: -1602863038
       rougelike_master_sheet_1038: 2075355116
+      rougelike_master_sheet_1643: -1998727853
       rougelike_master_sheet_1169: -759479892
       rougelike_master_sheet_1584: 254886406
       rougelike_master_sheet_800: -6518979
@@ -36528,8 +36530,8 @@ TextureImporter:
       rougelike_master_sheet_252: 2069905777
       rougelike_master_sheet_445: 1336942101
       rougelike_master_sheet_484: 24628140
-      rougelike_master_sheet_1128: 519058313
       rougelike_master_sheet_1612: 984614486
+      rougelike_master_sheet_1128: 519058313
       rougelike_master_sheet_468: -806793424
       rougelike_master_sheet_236: 1497361505
       rougelike_master_sheet_1351: 1341787483
@@ -36858,15 +36860,15 @@ TextureImporter:
       rougelike_master_sheet_1382: 345761320
       rougelike_master_sheet_916: -1768732977
       rougelike_master_sheet_568: 1940451783
-      rougelike_master_sheet_942: -147333514
       rougelike_master_sheet_1221: -59953749
+      rougelike_master_sheet_1289: 1597141131
       rougelike_master_sheet_1090: -1096965048
       rougelike_master_sheet_1023: 1351046196
       rougelike_master_sheet_1383: -873847077
-      rougelike_master_sheet_1289: 1597141131
+      rougelike_master_sheet_942: -147333514
       rougelike_master_sheet_875: -1678673082
-      rougelike_master_sheet_1004: 1057489093
       rougelike_master_sheet_921: 1050987371
+      rougelike_master_sheet_1004: 1057489093
       rougelike_master_sheet_258: 1048037268
       rougelike_master_sheet_239: -249648032
       rougelike_master_sheet_546: 680635511
@@ -36908,10 +36910,10 @@ TextureImporter:
       rougelike_master_sheet_483: 1787018749
       rougelike_master_sheet_1115: 1435332310
       rougelike_master_sheet_67: 500712714
-      rougelike_master_sheet_56: -651286918
-      rougelike_master_sheet_574: 1409123152
       rougelike_master_sheet_572: 1366976572
+      rougelike_master_sheet_574: 1409123152
       rougelike_master_sheet_1432: 129263326
+      rougelike_master_sheet_56: -651286918
       rougelike_master_sheet_1557: 1291578998
       rougelike_master_sheet_768: -1067407623
       rougelike_master_sheet_1341: 1888555496
@@ -36936,8 +36938,8 @@ TextureImporter:
       rougelike_master_sheet_769: 208994827
       rougelike_master_sheet_1416: 1728067653
       rougelike_master_sheet_355: 1889161536
-      rougelike_master_sheet_871: -991663430
       rougelike_master_sheet_1463: 703527675
+      rougelike_master_sheet_871: -991663430
       rougelike_master_sheet_89: -2135185572
       rougelike_master_sheet_593: 1215468805
       rougelike_master_sheet_763: -651555708
@@ -37007,22 +37009,22 @@ TextureImporter:
       rougelike_master_sheet_1099: 1642083145
       rougelike_master_sheet_1029: -2043813281
       rougelike_master_sheet_244: -606952731
-      rougelike_master_sheet_798: -1115519349
       rougelike_master_sheet_1259: -1864405218
       rougelike_master_sheet_714: -1044575066
       rougelike_master_sheet_376: -2024520491
       rougelike_master_sheet_1607: -1786980663
+      rougelike_master_sheet_798: -1115519349
       rougelike_master_sheet_489: 1458205804
       rougelike_master_sheet_34: 682020517
       rougelike_master_sheet_738: -1505947786
       rougelike_master_sheet_112: 524857524
       rougelike_master_sheet_1262: -75441805
-      rougelike_master_sheet_1554: 243995103
       rougelike_master_sheet_1580: 258488119
-      rougelike_master_sheet_1652: 350620944
+      rougelike_master_sheet_1554: 243995103
       rougelike_master_sheet_624: 790828683
       rougelike_master_sheet_1589: -1904149814
       rougelike_master_sheet_1079: -1237212429
+      rougelike_master_sheet_1652: 350620944
       rougelike_master_sheet_169: 157902748
       rougelike_master_sheet_579: -1052793733
       rougelike_master_sheet_757: 1665423157
@@ -37039,16 +37041,16 @@ TextureImporter:
       rougelike_master_sheet_1059: -1814386083
       rougelike_master_sheet_541: -1355114604
       rougelike_master_sheet_340: 607983123
-      rougelike_master_sheet_695: -710444833
       rougelike_master_sheet_1393: 1430250709
       rougelike_master_sheet_142: 1056279350
-      rougelike_master_sheet_920: 129099037
       rougelike_master_sheet_1026: 1241745588
       rougelike_master_sheet_1527: -751549465
-      rougelike_master_sheet_1694: 1299212138
+      rougelike_master_sheet_695: -710444833
+      rougelike_master_sheet_920: 129099037
       rougelike_master_sheet_586: 1679124130
       rougelike_master_sheet_1530: -823957928
       rougelike_master_sheet_1097: -490433303
+      rougelike_master_sheet_1694: 1299212138
       rougelike_master_sheet_378: 1446814461
       rougelike_master_sheet_1483: 1721617481
       rougelike_master_sheet_548: -780150684
@@ -37056,13 +37058,13 @@ TextureImporter:
       rougelike_master_sheet_1137: 681621592
       rougelike_master_sheet_92: 804773663
       rougelike_master_sheet_1083: -661876234
-      rougelike_master_sheet_266: -584763329
+      rougelike_master_sheet_1598: 127840639
       rougelike_master_sheet_1124: 2036915016
       rougelike_master_sheet_761: -1682796229
-      rougelike_master_sheet_1598: 127840639
-      rougelike_master_sheet_1417: 2005302903
+      rougelike_master_sheet_266: -584763329
       rougelike_master_sheet_789: -197811640
       rougelike_master_sheet_676: 1918425788
+      rougelike_master_sheet_1417: 2005302903
       rougelike_master_sheet_599: 1259598694
       rougelike_master_sheet_1061: -1353376355
       rougelike_master_sheet_430: 218752342
@@ -37147,8 +37149,8 @@ TextureImporter:
       rougelike_master_sheet_1041: 1947558559
       rougelike_master_sheet_992: 1077631094
       rougelike_master_sheet_551: 848278230
-      rougelike_master_sheet_1433: 850845282
       rougelike_master_sheet_1613: -53741553
+      rougelike_master_sheet_1433: 850845282
       rougelike_master_sheet_1042: 349693036
       rougelike_master_sheet_1320: 336436934
       rougelike_master_sheet_1430: 488292439
@@ -37189,9 +37191,9 @@ TextureImporter:
       rougelike_master_sheet_134: 564095868
       rougelike_master_sheet_1372: 30712001
       rougelike_master_sheet_422: -300469511
-      rougelike_master_sheet_496: 96582705
       rougelike_master_sheet_891: -975359676
       rougelike_master_sheet_1453: 1809890207
+      rougelike_master_sheet_496: 96582705
       rougelike_master_sheet_1187: 1829225751
       rougelike_master_sheet_1688: -1088976792
       rougelike_master_sheet_851: -1085878928
@@ -37219,8 +37221,8 @@ TextureImporter:
       rougelike_master_sheet_1569: 1777748435
       rougelike_master_sheet_1047: 2046076823
       rougelike_master_sheet_1217: -1226471450
-      rougelike_master_sheet_887: 858977989
       rougelike_master_sheet_1224: 1318697863
+      rougelike_master_sheet_887: 858977989
       rougelike_master_sheet_1399: -1898532189
       rougelike_master_sheet_1538: -1975129443
       rougelike_master_sheet_1477: -681269439
@@ -37242,8 +37244,8 @@ TextureImporter:
       rougelike_master_sheet_1622: -1671373928
       rougelike_master_sheet_504: 191263965
       rougelike_master_sheet_895: 1726831895
-      rougelike_master_sheet_827: 1487209086
       rougelike_master_sheet_1657: -1277342632
+      rougelike_master_sheet_827: 1487209086
       rougelike_master_sheet_1253: 787141282
       rougelike_master_sheet_1024: 1273447996
       rougelike_master_sheet_1576: 1200408101
@@ -37616,7 +37618,6 @@ TextureImporter:
       rougelike_master_sheet_1684: -1799717151
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

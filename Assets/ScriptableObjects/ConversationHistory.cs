@@ -11,10 +11,13 @@ public class ConversationHistory : ScriptableObject
 
     public bool metReaper;
 
+    public bool metSmith;
+
     public void Reset()
     {
         metScientist = false;
         metAdventurer = false;
         metReaper = false;
+        metSmith = false;
     }
 }

@@ -149,7 +149,7 @@ Grid:
   m_GameObject: {fileID: 72344785}
   m_Enabled: 1
   m_CellSize: {x: 0.5, y: 0.5, z: 0}
-  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellGap: {x: -0.0001, y: -0.0001, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
 --- !u!4 &72344787
@@ -2759,7 +2759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960752458, guid: ab7e4083e0afec14caab97a31648739f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0020001
+      value: 1.002
       objectReference: {fileID: 0}
     - target: {fileID: 2059552356, guid: ab7e4083e0afec14caab97a31648739f, type: 3}
       propertyPath: m_AnimatedTarget
@@ -2767,6 +2767,10 @@ PrefabInstance:
       objectReference: {fileID: 2116304316}
     - target: {fileID: 2059552356, guid: ab7e4083e0afec14caab97a31648739f, type: 3}
       propertyPath: m_ChildCameras.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 832822370356075666, guid: ab7e4083e0afec14caab97a31648739f, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 832822370356075667, guid: ab7e4083e0afec14caab97a31648739f, type: 3}

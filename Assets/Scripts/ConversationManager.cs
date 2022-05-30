@@ -69,7 +69,10 @@ public class ConversationManager : MonoBehaviour
             FindObjectOfType<PlayerController>().canMove = true;
             conversationText.text = string.Empty;
             conversationSpeakerImage.sprite = null;
-            FindObjectOfType<GameSession>().IncreaseMemory(memoryToAwardAfterConversation);
+            if (memoryToAwardAfterConversation > 0)
+            {
+                FindObjectOfType<GameSession>().IncreaseMemory(memoryToAwardAfterConversation);
+            }
             memoryToAwardAfterConversation = 0;
         }
     }

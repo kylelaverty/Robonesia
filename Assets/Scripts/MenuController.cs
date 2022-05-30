@@ -41,6 +41,7 @@ public class MenuController : MonoBehaviour
 
     public void NewGameDialogYes()
     {
+        // Reset the conversation history to properly represent a new game state no matter what.
         playerConversationHistory.Reset();
         StartCoroutine(LoadLevel(newGameLevel));
     }

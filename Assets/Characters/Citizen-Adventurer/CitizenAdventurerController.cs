@@ -25,7 +25,7 @@ public class CitizenAdventurerController : MonoBehaviour
                     "You should go to the smith's house, you often talked about him and how you two would hang out often. He may know if you went on that trip.",
                     "Hope that helps you in your journey of discovery."
                 },
-                100
+                5
             );
         }
     }
