@@ -8,12 +8,6 @@ using TMPro;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip doorOpenSound;
-
-    [SerializeField]
-    private AudioClip doorCloseSound;
-
-    [SerializeField]
     private AudioSource musicSource;
 
     // Use Awake to enforce singleton pattern.
@@ -38,18 +32,6 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         StartMusic();
-    }
-
-    // Play door open audio clip.
-    public void PlayDoorOpen()
-    {
-        AudioSource.PlayClipAtPoint(doorOpenSound, Camera.main.transform.position);
-    }
-
-    // Play door close audio clip.
-    public void PlayDoorClose()
-    {
-        AudioSource.PlayClipAtPoint(doorCloseSound, Camera.main.transform.position);
     }
 
     public void ChangeMusic()
