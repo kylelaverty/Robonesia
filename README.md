@@ -32,7 +32,6 @@ Engine: **Unity**
 
 ### Fonts
 
-- KenVector Future - [Kenney.nl](https://kenney.nl/assets/kenney-fonts) (under CC0 license)
 - Roboto - [Google Fonts](https://fonts.google.com/specimen/Roboto) (under Apache License, Version 2.0)
 
 ### Song
