@@ -23,8 +23,10 @@ public class ScientistController : MonoBehaviour
                     "Hello, I'm a scientist. I'm here to help you find your missing memories.",
                     "I moved your brain into this body to help solve why you died, I got your body and nothing seemed wrong.",
                     "But your memories did not transfer correctly and now you don't know who you are.",
-                    "By interacting with different people in town you should be able to rebuild your memories and reconstruct your past, maybe even solve what happened to you and find closer and peace.",
-                    "Oh, one more thing, you are a robot now so you need power. When your power gets low come back and recharge at the yellow crystal."
+                    "By interacting with different people in town you should be able to rebuild your memories ...",
+                    "and reconstruct your past, maybe even solve what happened to you and find closure and peace.",
+                    "Oh, one more thing, you are a robot now so you need power. When your power gets low come ...",
+                    "back and recharge at the yellow crystal."
                 },
                 5
             );

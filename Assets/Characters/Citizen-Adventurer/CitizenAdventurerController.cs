@@ -22,7 +22,8 @@ public class CitizenAdventurerController : MonoBehaviour
                     "I have heard from the scientist that you are looking for your lost past.",
                     "I met you in your old life, your name was Thomas Cooper.",
                     "The last time I saw you was a few months ago and you were talking about taking a camping trip.",
-                    "You should go to the smith's house, you often talked about him and how you two would hang out often. He may know if you went on that trip.",
+                    "You should go to the smith's house, you often talked about him and ...",
+                    "how you two would hang out often. He may know if you went on that trip.",
                     "Hope that helps you in your journey of discovery."
                 },
                 5
