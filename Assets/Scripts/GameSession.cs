@@ -49,6 +49,12 @@ public class GameSession : MonoBehaviour
         playerMemoriesSlider.value = playerMemories;
     }
 
+    public void SetEnergy(int energy)
+    {
+        playerEnergy = energy;
+        playerEnergySlider.value = playerEnergy;
+    }
+
     public void IncreaseEnergy(int value)
     {
         // We only want to increase the energy if the player is not already dead.
@@ -93,6 +99,12 @@ public class GameSession : MonoBehaviour
 
         // Load the death scene.
         PlayerDeadEndGame();
+    }
+
+    public void SetMemories(int memories)
+    {
+        playerMemories = memories;
+        playerMemoriesSlider.value = playerMemories;
     }
 
     public void IncreaseMemory(int value)
@@ -149,6 +161,17 @@ public class GameSession : MonoBehaviour
         Destroy(FindObjectOfType<PlayerController>());
         playerConversationHistory.Reset();
         ResetGameSession();
+    }
+
+    public void OnClickSave()
+    {
+        var saveManager = FindObjectOfType<SaveManager>();
+        saveManager.SetConversationState(playerConversationHistory);
+        saveManager.SetPlayerStats(playerEnergy, playerMemories);
+        saveManager.SetPlayerScene();
+        saveManager.SetPlayerPosition(FindObjectOfType<PlayerController>().transform.position);
+        saveManager.SaveGameState();
+        ToggleMenu();
     }
 
     public void StartRecharge(int chargeAmount, float chargeSpeedSeconds)

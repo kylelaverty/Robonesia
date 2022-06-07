@@ -20,4 +20,12 @@ public class ConversationHistory : ScriptableObject
         metReaper = false;
         metSmith = false;
     }
+
+    public void SetConversationState(bool scientist, bool adventurer, bool reaper, bool smith)
+    {
+        metScientist = scientist;
+        metAdventurer = adventurer;
+        metReaper = reaper;
+        metSmith = smith;
+    }
 }

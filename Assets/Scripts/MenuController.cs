@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class MenuController : MonoBehaviour
 {
@@ -36,6 +38,8 @@ public class MenuController : MonoBehaviour
     [Header("Progress Tracker")]
     [SerializeField]
     private ConversationHistory playerConversationHistory;
+    [SerializeField]
+    private VectorValue playerLocation;
 
     private string levelToLoad;
 
@@ -56,10 +60,21 @@ public class MenuController : MonoBehaviour
 
     public void LoadGameDialogYes()
     {
-        if (PlayerPrefs.HasKey("SavedLevel"))
+        var saveManager = FindObjectOfType<SaveManager>();
+
+        // Try to load the game save data.
+        if (saveManager != null && saveManager.LoadGameState())
         {
-            levelToLoad = PlayerPrefs.GetString("SavedLevel");
-            SceneManager.LoadScene(levelToLoad);
+            // Set current conversation state.
+            playerConversationHistory.SetConversationState(saveManager.MetAdventurer, saveManager.MetReaper, saveManager.MetScientist, saveManager.MetSmith);
+
+            // Set player location.
+            playerLocation.initialValue = new Vector2(saveManager.PlayerPositionX, saveManager.PlayerPositionY);
+
+            // TODO: Find a way to set the player's energy and memories on the game session.
+
+            // Load the scene with a transition.
+            StartCoroutine(LoadLevel(saveManager.PlayerScene));
         }
         else
         {

@@ -1069,6 +1069,7 @@ MonoBehaviour:
   playerMemoriesSlider: {fileID: 3273372599401212434}
   menuPanel: {fileID: 4137323304887104517}
   playerConversationHistory: {fileID: 11400000, guid: 29381c23600f1d64aad4334c4f238fbc, type: 2}
+  saveManager: {fileID: 8972371295250944320, guid: b5282971658631b439c5b9317738b4bd, type: 3}
 --- !u!1 &3273372600054782596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,7 +1443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2648005893267695674
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1539,7 +1540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 101.2, y: -58.7}
+  m_AnchoredPosition: {x: 101.2, y: -82.3}
   m_SizeDelta: {x: 333.9258, y: 75.686}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3011117815219314864
@@ -1713,7 +1714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8747263419860072297
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1731,7 +1732,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 98.527, y: -37.843}
+  m_AnchoredPosition: {x: 100.9, y: -34.2}
   m_SizeDelta: {x: 333.9258, y: 75.686}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6264935113140215242
@@ -1765,7 +1766,7 @@ MonoBehaviour:
   m_text: Save
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 61d85cc90f9ca7548a95e68b62675e72, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -2930383563021301642, guid: 61d85cc90f9ca7548a95e68b62675e72, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1875,22 +1876,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1024524952}
+        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
+        m_MethodName: OnClickSave
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
