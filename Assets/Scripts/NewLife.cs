@@ -7,6 +7,10 @@ public class NewLife : MonoBehaviour
 {
     [SerializeField]
     private ConversationHistory playerConversationHistory;
+    [SerializeField]
+    private VectorValue playerLocation;
+    [SerializeField]
+    private PlayerState playerState;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,6 +23,8 @@ public class NewLife : MonoBehaviour
             audioManager.Dispose();
             gameSession.Dispose();
             playerConversationHistory.Reset();
+            playerState.Reset();
+            playerLocation.initialValue = new Vector2(-8.909f, 1.002f);
             SceneManager.LoadScene("01 - Awaken");
         }
     }

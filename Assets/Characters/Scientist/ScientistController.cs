@@ -15,7 +15,7 @@ public class ScientistController : MonoBehaviour
         // Ensure the dialog only triggers the first time the scientist is created.
         if (!playerConversationHistory.metScientist)
         {
-            playerConversationHistory.metScientist = true;
+            //playerConversationHistory.metScientist = true;
             var conversationManager = FindObjectOfType<ConversationManager>();
             conversationManager.StartConversation(
                 characterHead,

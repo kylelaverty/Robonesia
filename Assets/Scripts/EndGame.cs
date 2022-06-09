@@ -7,6 +7,8 @@ public class EndGame : MonoBehaviour
 {
     [SerializeField]
     private ConversationHistory playerConversationHistory;
+    [SerializeField]
+    private PlayerState playerState;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,6 +24,7 @@ public class EndGame : MonoBehaviour
             }
             gameSession.Dispose();
             playerConversationHistory.Reset();
+            playerState.Reset();
             SceneManager.LoadScene("00 - Menu");
         }
     }

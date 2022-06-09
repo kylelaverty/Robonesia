@@ -9912,7 +9912,6 @@ MonoBehaviour:
   volumeTextValue: {fileID: 1071342411}
   volumeSlider: {fileID: 266927516}
   defaultVolume: 1
-  saveManager: {fileID: 0}
   controllerSensativityTextValue: {fileID: 1243229507}
   controllerSensativitySlider: {fileID: 1689475775}
   defaultSensativity: 4
@@ -9923,6 +9922,7 @@ MonoBehaviour:
   noSavedGameDialog: {fileID: 721799815}
   playerConversationHistory: {fileID: 11400000, guid: 29381c23600f1d64aad4334c4f238fbc, type: 2}
   playerLocation: {fileID: 11400000, guid: 09550d9fc3b0c9c4faad0542658a22a8, type: 2}
+  playerState: {fileID: 11400000, guid: 5b6ee2a280de0f047bc411d0392b3c49, type: 2}
 --- !u!4 &2113144182
 Transform:
   m_ObjectHideFlags: 0

@@ -8,12 +8,6 @@ using TMPro;
 public class GameSession : MonoBehaviour
 {
     [SerializeField]
-    private int playerEnergy = 100;
-
-    [SerializeField]
-    private int playerMemories = 0;
-
-    [SerializeField]
     private Slider playerEnergySlider;
 
     [SerializeField]
@@ -24,6 +18,14 @@ public class GameSession : MonoBehaviour
 
     [SerializeField]
     private ConversationHistory playerConversationHistory;
+
+    [SerializeField]
+    private PlayerState playerState;
+
+    private int playerEnergyMax = 100;
+    private int playerEnergyMin = 0;
+    private int playerMemoriesMax = 100;
+    private int playerMemoriesMin = 0;
 
     private Coroutine recharger;
     private bool isRecharging;
@@ -45,24 +47,24 @@ public class GameSession : MonoBehaviour
     // User Start to set the intial values of the sliders
     private void Start()
     {
-        playerEnergySlider.value = playerEnergy;
-        playerMemoriesSlider.value = playerMemories;
+        playerEnergySlider.value = playerState.playerEnergy;
+        playerMemoriesSlider.value = playerState.playerMemories;
     }
 
     public void SetEnergy(int energy)
     {
-        playerEnergy = energy;
-        playerEnergySlider.value = playerEnergy;
+        playerState.playerEnergy = Mathf.Clamp(energy, playerEnergyMin, playerEnergyMax);
+        playerEnergySlider.value = playerState.playerEnergy;
     }
 
     public void IncreaseEnergy(int value)
     {
         // We only want to increase the energy if the player is not already dead.
         // This prevents the player from touching the charge pod just as they die.
-        if (playerEnergy > 0)
+        if (playerState.playerEnergy > 0)
         {
-            playerEnergy += value;
-            playerEnergySlider.value = playerEnergy;
+            playerState.playerEnergy = Mathf.Clamp(playerState.playerEnergy + value, playerEnergyMin, playerEnergyMax);
+            playerEnergySlider.value = playerState.playerEnergy;
         }
     }
 
@@ -71,19 +73,22 @@ public class GameSession : MonoBehaviour
         // Only decrease energy if player is not actively recharging.
         if (!isRecharging)
         {
-            // Decrease the energy.
-            playerEnergy -= value;
+            // We only want to decrease the energy if the player is not already dead.
+            if (playerState.playerEnergy > 0)
+            {
+                playerState.playerEnergy = Mathf.Clamp(playerState.playerEnergy - value, playerEnergyMin, playerEnergyMax);
+            }
 
             // If they are now dead, then we need to load the death scene.
-            if (playerEnergy <= 0)
+            if (playerState.playerEnergy <= 0)
             {
                 EnergyZero();
             }
             else
             {
-                playerEnergySlider.value = playerEnergy;
+                playerEnergySlider.value = playerState.playerEnergy;
 
-                if (playerEnergy <= 0)
+                if (playerState.playerEnergy <= 0)
                 {
                     EnergyZero();
                 }
@@ -94,8 +99,8 @@ public class GameSession : MonoBehaviour
     private void EnergyZero()
     {
         // Set the energy to 0 just incase and update the UI.
-        playerEnergy = 0;
-        playerEnergySlider.value = playerEnergy;
+        playerState.playerEnergy = 0;
+        playerEnergySlider.value = playerState.playerEnergy;
 
         // Load the death scene.
         PlayerDeadEndGame();
@@ -103,22 +108,17 @@ public class GameSession : MonoBehaviour
 
     public void SetMemories(int memories)
     {
-        playerMemories = memories;
-        playerMemoriesSlider.value = playerMemories;
+        playerState.playerMemories = Mathf.Clamp(memories, playerMemoriesMin, playerMemoriesMax);
+        playerMemoriesSlider.value = playerState.playerMemories;
     }
 
     public void IncreaseMemory(int value)
     {
-        playerMemories += value;
-        if (playerMemories >= 100)
+        playerState.playerMemories = Mathf.Clamp(playerState.playerMemories + value, playerMemoriesMin, playerMemoriesMax);
+        playerMemoriesSlider.value = playerState.playerMemories;
+        if (playerState.playerMemories >= 100)
         {
-            playerMemories = 100;
-            playerMemoriesSlider.value = playerMemories;
             PlayerWinGame();
-        }
-        else
-        {
-            playerMemoriesSlider.value = playerMemories;
         }
     }
 
@@ -160,6 +160,7 @@ public class GameSession : MonoBehaviour
     {
         Destroy(FindObjectOfType<PlayerController>());
         playerConversationHistory.Reset();
+        playerState.Reset();
         ResetGameSession();
     }
 
@@ -167,7 +168,7 @@ public class GameSession : MonoBehaviour
     {
         var saveManager = FindObjectOfType<SaveManager>();
         saveManager.SetConversationState(playerConversationHistory);
-        saveManager.SetPlayerStats(playerEnergy, playerMemories);
+        saveManager.SetPlayerStats(playerState.playerEnergy, playerState.playerMemories);
         saveManager.SetPlayerScene();
         saveManager.SetPlayerPosition(FindObjectOfType<PlayerController>().transform.position);
         saveManager.SaveGameState();

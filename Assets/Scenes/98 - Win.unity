@@ -1388,6 +1388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerConversationHistory: {fileID: 11400000, guid: 29381c23600f1d64aad4334c4f238fbc, type: 2}
+  playerState: {fileID: 11400000, guid: 5b6ee2a280de0f047bc411d0392b3c49, type: 2}
 --- !u!61 &1133043400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2714,7 +2715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960752458, guid: ab7e4083e0afec14caab97a31648739f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.97000134
+      value: 0.9700012
       objectReference: {fileID: 0}
     - target: {fileID: 2059552356, guid: ab7e4083e0afec14caab97a31648739f, type: 3}
       propertyPath: m_AnimatedTarget

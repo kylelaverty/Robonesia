@@ -215,7 +215,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   canMove: 1
-  startingPosition: {fileID: 0}
+  startingPosition: {fileID: 11400000, guid: 09550d9fc3b0c9c4faad0542658a22a8, type: 2}
   energyDegradeInitialDelaySeconds: 10
   energyDegradeDelaySeconds: 10
   energyDegradeAmount: 1

@@ -3005,9 +3005,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1024524952, guid: 78b01d8550aebd04299149a724289797, type: 3}
+      propertyPath: playerState
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b6ee2a280de0f047bc411d0392b3c49, type: 2}
+    - target: {fileID: 1024524952, guid: 78b01d8550aebd04299149a724289797, type: 3}
       propertyPath: saveManager
       value: 
       objectReference: {fileID: 1063556889}
+    - target: {fileID: 1024524952, guid: 78b01d8550aebd04299149a724289797, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 1010982554957345910, guid: 08021f37cc919ef4cb5e93232f7986fc, type: 3}
     - target: {fileID: 1024524952, guid: 78b01d8550aebd04299149a724289797, type: 3}
       propertyPath: playerConversationHistory
       value: 
@@ -3246,10 +3254,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 718125615322841961, guid: 0ef8a9f7ba4a7de4c83be74dc95cd18d, type: 3}
-      propertyPath: energyDegradeAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7664258266377766437, guid: 0ef8a9f7ba4a7de4c83be74dc95cd18d, type: 3}
       propertyPath: m_RootOrder
       value: 0

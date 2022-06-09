@@ -982,7 +982,7 @@ RectTransform:
   - {fileID: 3273372598793167155}
   - {fileID: 3273372598607651435}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1063,13 +1063,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c5e75f301026f499348419b621acb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerEnergy: 100
-  playerMemories: 0
   playerEnergySlider: {fileID: 3273372600054782598}
   playerMemoriesSlider: {fileID: 3273372599401212434}
   menuPanel: {fileID: 4137323304887104517}
   playerConversationHistory: {fileID: 11400000, guid: 29381c23600f1d64aad4334c4f238fbc, type: 2}
-  saveManager: {fileID: 8972371295250944320, guid: b5282971658631b439c5b9317738b4bd, type: 3}
+  playerState: {fileID: 11400000, guid: 5b6ee2a280de0f047bc411d0392b3c49, type: 2}
 --- !u!1 &3273372600054782596
 GameObject:
   m_ObjectHideFlags: 0

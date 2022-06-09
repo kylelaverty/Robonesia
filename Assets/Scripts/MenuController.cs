@@ -40,6 +40,8 @@ public class MenuController : MonoBehaviour
     private ConversationHistory playerConversationHistory;
     [SerializeField]
     private VectorValue playerLocation;
+    [SerializeField]
+    private PlayerState playerState;
 
     private string levelToLoad;
 
@@ -47,6 +49,10 @@ public class MenuController : MonoBehaviour
     {
         // Reset the conversation history to properly represent a new game state no matter what.
         playerConversationHistory.Reset();
+        playerState.Reset();
+
+        // Set the player starting position for a new game.
+        playerLocation.initialValue = new Vector2(-8.909f, 1.002f);
         StartCoroutine(LoadLevel(newGameLevel));
     }
 
@@ -66,12 +72,13 @@ public class MenuController : MonoBehaviour
         if (saveManager != null && saveManager.LoadGameState())
         {
             // Set current conversation state.
-            playerConversationHistory.SetConversationState(saveManager.MetAdventurer, saveManager.MetReaper, saveManager.MetScientist, saveManager.MetSmith);
+            playerConversationHistory.SetConversationState(saveManager.MetScientist, saveManager.MetAdventurer, saveManager.MetReaper, saveManager.MetSmith);
 
             // Set player location.
             playerLocation.initialValue = new Vector2(saveManager.PlayerPositionX, saveManager.PlayerPositionY);
 
-            // TODO: Find a way to set the player's energy and memories on the game session.
+            // Set player energy and memories.
+            playerState.SetPlayerState(saveManager.PlayerEnergy, saveManager.PlayerMemories);
 
             // Load the scene with a transition.
             StartCoroutine(LoadLevel(saveManager.PlayerScene));
